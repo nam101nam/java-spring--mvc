@@ -23,7 +23,17 @@ public class UserController {
         String test = this.userService.handleHello();
         model.addAttribute("index", test);
         model.addAttribute("hoidanit", "from controller with model");
+        model.addAttribute("create", test);
         return "hello";
+    }
+
+    @RequestMapping("/admin/user")
+    public String getAdmin(Model model) {
+        String test = this.userService.handleHello();
+        model.addAttribute("index", test);
+        model.addAttribute("hoidanit", "from controller with model");
+        model.addAttribute("create", test);
+        return "/admin/user/create";
     }
 }
 // @RestController
