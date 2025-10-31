@@ -1,6 +1,13 @@
 package com.example.demo.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+
 public class User {
+    @Id
     public long id;
     public String email;
     private String password;
