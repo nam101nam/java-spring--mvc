@@ -22,25 +22,24 @@ public class UserController {
 
     @RequestMapping("/")
     public String getHomePage(Model model) {
-        System.out.println("Run here");
-        List<User> users = this.userService.handleFindByEmail("dophuongnam1010@gmail.com");
-        System.out.println(users);
         return "hello";
     }
 
     @RequestMapping("/admin/user")
     public String getUserPage(Model model) {
 
-        model.addAttribute("newUser", new User());
+        return "/admin/user/table-user";
+    }
 
+    @RequestMapping("/admin/user/create")
+    public String getCreateUserPage(Model model) {
+        model.addAttribute("newUser", new User());
         return "/admin/user/create";
     }
 
-    @RequestMapping(value = "/admin/user/create1", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String createUserPage(Model model, @ModelAttribute("newUser") User user) {
-        System.out.println("Run here");
         this.userService.handleSaveUser(user);
-
         return "hello";
     }
 }
