@@ -32,4 +32,9 @@ public class UserService {
     public List<User> handleFindAll() {
         return this.userRepository.findAll();
     }
+
+    public User handleFindById(long id) {
+
+        return this.userRepository.findById(id);
+    }
 }
