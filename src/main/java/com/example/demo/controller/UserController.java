@@ -9,6 +9,7 @@ import com.example.demo.domain.User;
 import com.example.demo.service.UserService;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class UserController {
@@ -30,6 +31,13 @@ public class UserController {
         List<User> users = this.userService.handleFindAll();
         model.addAttribute("users1", users);
         return "/admin/user/table-user";
+    }
+
+    @RequestMapping("/admin/user/{id}")
+    public String getUserDetail(Model model, @PathVariable Long id) {
+        System.out.println("id=" + id);
+        model.addAttribute("id", id);
+        return "/admin/user/show";
     }
 
     @RequestMapping("/admin/user/create")
