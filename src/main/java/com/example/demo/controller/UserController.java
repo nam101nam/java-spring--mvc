@@ -26,6 +26,7 @@ public class UserController {
         return "hello";
     }
 
+    // Back to user management page
     @RequestMapping("/admin/user")
     public String getUserPage(Model model) {
         List<User> users = this.userService.handleFindAll();
@@ -33,6 +34,7 @@ public class UserController {
         return "/admin/user/table-user";
     }
 
+    // View user detail page
     @RequestMapping("/admin/user/{id}")
     public String getUserDetail(Model model, @PathVariable Long id) {
         User user = this.userService.handleFindById(id);
@@ -41,15 +43,24 @@ public class UserController {
         return "/admin/user/show";
     }
 
+    // Get create user page
     @RequestMapping("/admin/user/create")
     public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
         return "/admin/user/create";
     }
 
+    // Handle create user request
     @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
     public String createUserPage(Model model, @ModelAttribute("newUser") User user) {
         this.userService.handleSaveUser(user);
         return "redirect:/admin/user";
+    }
+
+    // Get update user page
+    @RequestMapping("/admin/user/update/{id}")
+    public String getUpdateUserPage(Model model) {
+        model.addAttribute("newUser", new User());
+        return "/admin/user/update";
     }
 }
