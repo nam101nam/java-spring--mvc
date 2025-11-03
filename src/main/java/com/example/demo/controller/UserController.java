@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.example.demo.domain.User;
 import com.example.demo.service.UserService;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -71,11 +72,26 @@ public class UserController {
         User updateUser = this.userService.handleFindById(user.getId());
         if (updateUser != null) {
             updateUser.setFullName(user.getFullName());
-            updateUser.setEmail(user.getEmail());
+            updateUser.setPhone(user.getPhone());
             updateUser.setAddress(user.getAddress());
             this.userService.handleSaveUser(updateUser);
 
         }
         return "redirect:/admin/user";
     }
+
+    @GetMapping("/admin/user/delete/{id}")
+    public String getDeleteUserPage(Model model, @PathVariable Long id) {
+        // User user = new User();
+        // user.setId(id);
+        model.addAttribute("user", new User());
+        return "/admin/user/delete";
+    }
+
+    @RequestMapping(value = "/admin/user/delete", method = RequestMethod.POST)
+    public String deleteUserPage(Model model, @ModelAttribute("user") User user) {
+        this.userService.handleDeleteById(user.getId());
+        return "redirect:/admin/user";
+    }
+
 }

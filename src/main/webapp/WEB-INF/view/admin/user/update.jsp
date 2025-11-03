@@ -30,7 +30,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Email:</label>
-                                    <form:input path="email" type="email" class="form-control" />
+                                    <form:input path="email" type="email" disabled="true" class="form-control" />
                                 </div>
 
                                 <div class="mb-3">
@@ -45,7 +45,11 @@
                                     <label class="form-label">Address:</label>
                                     <form:input type="text" class="form-control" path="address" />
                                 </div>
-                                <button>Submit</button>
+                                <div>
+                                    <button class="btn btn-success">Submit</button>
+                                    <a href="/admin/user" class="btn btn-secondary">Cancel</a>
+                                </div>
+
                             </form:form>
                         </div>
                     </div>
