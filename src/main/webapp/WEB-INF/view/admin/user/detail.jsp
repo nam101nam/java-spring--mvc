@@ -30,29 +30,23 @@
                                 </ol>
                                 <div>
                                     <div>
-                                        <div class="row">
-                                            <div class="col-md-6 col-12 mx-auto">
-                                                <h3>Delete user</h3>
-                                                <hr>
-                                                <form:form method="post" action="/admin/user/delete"
-                                                    modelAttribute="user">
-                                                    <div class="mb-3" style="display:none">
-                                                        <label class="form-label">Id:</label>
-                                                        <form:input value="${id}" path="id" type="text"
-                                                            class="form-control" readonly="readonly" />
-                                                    </div>
-                                                    <div class="alert alert-danger" role="alert">
-                                                        Bạn chắc chắn muốn xóa user có id ${id} không?
-                                                    </div>
-                                                    <div><a href="/admin/user" class="btn btn-success">Back</a>
-                                                        <button class="btn btn-danger">Xóa</button>
-                                                    </div>
+                                        <div class="col-12 mx-auto">
+                                            <div class="card" style="width: 60%;">
+                                                <div class="card-header">
+                                                    Thông tin chi tiết user
+                                                </div>
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">Id: ${user.id}</li>
+                                                    <li class="list-group-item">Email: ${user.email}</li>
+                                                    <li class="list-group-item">Phone: ${user.phone}</li>
+                                                    <li class="list-group-item">FullName: ${user.fullName}</li>
+                                                    <li class="list-group-item">Address: ${user.address}</li>
+                                                </ul>
+                                                <div><a href="/admin/user" class="btn btn-success">Back</a></div>
 
-                                                </form:form>
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </main>
