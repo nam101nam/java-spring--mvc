@@ -35,29 +35,47 @@
                                                 <h3>Create a user</h3>
                                                 <hr>
                                                 <form:form method="post" action="/admin/user/create"
-                                                    modelAttribute="newUser">
-                                                    <div class="mb-3">
+                                                    modelAttribute="newUser" class="row">
+                                                    <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Email:</label>
                                                         <form:input path="email" type="email" class="form-control" />
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Password:</label>
                                                         <form:input path="password" type="password"
                                                             class="form-control" />
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Phone number:</label>
                                                         <form:input path="phone" type="text" class="form-control" />
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Full name:</label>
                                                         <form:input path="fullName" type="text" class="form-control" />
                                                     </div>
-                                                    <div class="mb-3">
+                                                    <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Address:</label>
                                                         <form:input type="text" class="form-control" path="address" />
                                                     </div>
-                                                    <button>Submit</button>
+
+                                                    <div class="mb-3 col-12 col-md-6">
+                                                        <label class="form-label">Role:</label>
+                                                        <select class="form-select" aria-label="Default select example">
+                                                            <option value="1">ADMIN</option>
+                                                            <option value="2">USER</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3 col-12 col-md-6">
+                                                        <label for="avatarFile" class="form-label">Avatar:</label>
+                                                        <input class="form-control" type="file" id="avatarFile"
+                                                            accept=".png,.jpg,.jpeg" />
+                                                    </div>
+                                                    <div class="mb-3 col-12 col-md-6">
+                                                        <img style="max-height:250px; display: none;"
+                                                            alt="avatar preview" id="avatarPreview" />
+
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Submit</button>
                                                 </form:form>
                                             </div>
                                         </div>
