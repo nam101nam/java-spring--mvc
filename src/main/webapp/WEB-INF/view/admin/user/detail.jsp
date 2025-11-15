@@ -41,6 +41,7 @@
                                                     <li class="list-group-item">Phone: ${user.phone}</li>
                                                     <li class="list-group-item">FullName: ${user.fullName}</li>
                                                     <li class="list-group-item">Address: ${user.address}</li>
+                                                    <li class="list-group-item">Role: ${user.roles.id}</li>
                                                 </ul>
                                                 <div><a href="/admin/user" class="btn btn-success">Back</a></div>
 
