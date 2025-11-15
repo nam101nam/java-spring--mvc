@@ -4,15 +4,19 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.example.demo.domain.Roles;
 import com.example.demo.domain.User;
+import com.example.demo.repository.RoleRepository;
 import com.example.demo.repository.UserRepository;
 
 @Service
 public class UserService {
     final private UserRepository userRepository;
+    final private RoleRepository roleRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
     }
 
     public String handleHello() {
@@ -40,5 +44,9 @@ public class UserService {
 
     public void handleDeleteById(long id) {
         this.userRepository.deleteById(id);
+    }
+
+    public Roles handleFindRoleByName(String name) {
+        return this.roleRepository.findByName(name);
     }
 }

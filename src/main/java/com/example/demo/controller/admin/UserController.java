@@ -1,11 +1,8 @@
 package com.example.demo.controller.admin;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.List;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,8 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.demo.domain.User;
 import com.example.demo.service.UploadService;
 import com.example.demo.service.UserService;
-
-import jakarta.servlet.ServletContext;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,10 +24,12 @@ public class UserController {
 
     final private UserService userService;
     final private UploadService uploadService;
+    final private PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, UploadService uploadService) {
+    public UserController(UserService userService, UploadService uploadService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadService = uploadService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @RequestMapping("/")
@@ -70,7 +67,10 @@ public class UserController {
             @RequestParam("hoidanitFile") MultipartFile file) {
 
         String fileName = this.uploadService.handleUploadFile(file, "avatar");
-        // this.userService.handleSaveUser(user);
+        user.setAvatar(fileName);
+        user.setPassword(this.passwordEncoder.encode(user.getPassword()));
+        user.setRoles(this.userService.handleFindRoleByName(user.getRoles().getName()));
+        this.userService.handleSaveUser(user);
         return "redirect:/admin/user";
     }
 
