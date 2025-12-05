@@ -48,26 +48,45 @@
                                                 <hr>
                                                 <form:form method="Post" action="/admin/user/create"
                                                     modelAttribute="newUser" class="row" enctype="multipart/form-data">
+
+
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Email:</label>
-                                                        <form:input path="email" type="email" class="form-control" />
+                                                        <form:input path="email" type="email"
+                                                            class="is-invalid form-control" />
+                                                        <form:errors path="email" cssClass="invalid-feedback" />
                                                     </div>
+
+
                                                     <div class="mb-3 col-12 col-md-6">
+                                                        <c:set var="errorPassword">
+                                                            <form:errors path="password" class="invalid-feedback" />
+                                                        </c:set>
                                                         <label class="form-label">Password:</label>
                                                         <form:input path="password" type="password"
-                                                            class="form-control" />
+                                                            class="form-control ${not empty errorPassword ? 'is-invalid' : ''}" />
+                                                        ${errorPassword}
+                                                        <!-- <form:errors path="password" cssClass="invalid-feedback" /> -->
                                                     </div>
+
+
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Phone number:</label>
-                                                        <form:input path="phone" type="text" class="form-control" />
+                                                        <form:input path="phone" type="text"
+                                                            class="is-invalid form-control" />
+                                                        <form:errors path="phone" cssClass="invalid-feedback" />
                                                     </div>
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Full name:</label>
-                                                        <form:input path="fullName" type="text" class="form-control" />
+                                                        <form:input path="fullName" type="text"
+                                                            class="is-invalid form-control" />
+                                                        <form:errors path="fullName" cssClass="invalid-feedback" />
                                                     </div>
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Address:</label>
-                                                        <form:input type="text" class="form-control" path="address" />
+                                                        <form:input type="text" class="is-invalid form-control"
+                                                            path="address" />
+                                                        <form:errors path="address" cssClass="invalid-feedback" />
                                                     </div>
 
                                                     <div class="mb-3 col-12 col-md-6">

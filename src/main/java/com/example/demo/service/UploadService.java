@@ -20,6 +20,9 @@ public class UploadService {
     }
 
     public String handleUploadFile(@RequestParam("hoidanitFile") MultipartFile file, String targetPath) {
+        if (file.isEmpty()) {
+            return "";
+        }
         String finalName = "";
         try {
             byte[] bytes = file.getBytes();

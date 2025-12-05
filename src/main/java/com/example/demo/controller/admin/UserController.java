@@ -70,12 +70,16 @@ public class UserController {
     // Handle create user request
     @PostMapping(value = "/admin/user/create")
     public String createUserPage(Model model, @ModelAttribute("newUser") @Valid User user,
-            BindingResult bindingResult,
+            BindingResult newUserBindingResult,
             @RequestParam("hoidanitFile") MultipartFile file) {
 
-        List<FieldError> errors = bindingResult.getFieldErrors();
+        List<FieldError> errors = newUserBindingResult.getFieldErrors();
         for (FieldError error : errors) {
-            System.out.println("Field error: " + error.getObjectName());
+            System.out.println("Field error: " + error.getField() + " - " + error.getDefaultMessage());
+        }
+        if ((newUserBindingResult.hasErrors())) {
+            return "/admin/user/create";
+
         }
 
         String fileName = this.uploadService.handleUploadFile(file, "avatar");
