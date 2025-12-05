@@ -47,23 +47,25 @@
                                                 <h3>Create a product</h3>
                                                 <hr>
                                                 <form:form method="Post" action="/admin/product/create"
-                                                    modelAttribute="newProduct" class="row" enctype="multipart/form-data">
+                                                    modelAttribute="newProduct" class="row"
+                                                    enctype="multipart/form-data">
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Name:</label>
                                                         <form:input path="name" type="text" class="form-control" />
                                                     </div>
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Price:</label>
-                                                        <form:input path="price" type="text"
-                                                            class="form-control" />
+                                                        <form:input path="price" type="text" class="form-control" />
                                                     </div>
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Detail description:</label>
-                                                        <form:input path="detailDesc" type="text" class="form-control" />
+                                                        <form:input path="detailDesc" type="text"
+                                                            class="form-control" />
                                                     </div>
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Short description:</label>
-                                                        <form:input path="shortlDesc" type="text" class="form-control" />
+                                                        <form:input path="shortlDesc" type="text"
+                                                            class="form-control" />
                                                     </div>
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label class="form-label">Quantity:</label>
@@ -87,14 +89,16 @@
                                                         <form:select class="form-select"
                                                             aria-label="Default select example" path="target">
                                                             <form:option value="GAMING">Gaming</form:option>
-                                                            <form:option value="SINHVIEN-VANPHONG">Sinh viên - Văn phòng</form:option>
-                                                            <form:option value="THIET-KE-DO-HOA">Thiết kế - Đồ họa</form:option>
+                                                            <form:option value="SINHVIEN-VANPHONG">Sinh viên - Văn phòng
+                                                            </form:option>
+                                                            <form:option value="THIET-KE-DO-HOA">Thiết kế - Đồ họa
+                                                            </form:option>
                                                             <form:option value="MONG-NHE">Mỏng-Nhẹ</form:option>
                                                             <form:option value="DOANH-NHAN">Doanh Nhân</form:option>
                                                         </form:select>
                                                     </div>
                                                     <div class="mb-3 col-12 col-md-6">
-                                                        <label for="avatarFile" class="form-label">Avatar:</label>
+                                                        <label for="avatarFile" class="form-label">Image:</label>
                                                         <input class="form-control" type="file" id="avatarFile"
                                                             accept=".png,.jpg,.jpeg" name="hoidanitFile" />
                                                     </div>
