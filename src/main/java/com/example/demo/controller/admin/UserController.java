@@ -81,7 +81,6 @@ public class UserController {
             return "/admin/user/create";
 
         }
-
         String fileName = this.uploadService.handleUploadFile(file, "avatar");
         user.setAvatar(fileName);
         user.setPassword(this.passwordEncoder.encode(user.getPassword()));

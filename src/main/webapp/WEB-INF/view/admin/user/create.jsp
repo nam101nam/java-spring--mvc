@@ -51,10 +51,13 @@
 
 
                                                     <div class="mb-3 col-12 col-md-6">
+                                                        <c:set var="errorEmail">
+                                                            <form:errors path="email" class="invalid-feedback" />
+                                                        </c:set>
                                                         <label class="form-label">Email:</label>
                                                         <form:input path="email" type="email"
-                                                            class="is-invalid form-control" />
-                                                        <form:errors path="email" cssClass="invalid-feedback" />
+                                                            class="form-control ${not empty errorEmail ? 'is-invalid' : ''}" />
+                                                        ${errorEmail}
                                                     </div>
 
 
@@ -71,25 +74,41 @@
 
 
                                                     <div class="mb-3 col-12 col-md-6">
+                                                        <c:set var="errorPhone">
+                                                            <form:errors path="phone" class="invalid-feedback" />
+                                                        </c:set>
                                                         <label class="form-label">Phone number:</label>
                                                         <form:input path="phone" type="text"
-                                                            class="is-invalid form-control" />
-                                                        <form:errors path="phone" cssClass="invalid-feedback" />
-                                                    </div>
-                                                    <div class="mb-3 col-12 col-md-6">
-                                                        <label class="form-label">Full name:</label>
-                                                        <form:input path="fullName" type="text"
-                                                            class="is-invalid form-control" />
-                                                        <form:errors path="fullName" cssClass="invalid-feedback" />
-                                                    </div>
-                                                    <div class="mb-3 col-12 col-md-6">
-                                                        <label class="form-label">Address:</label>
-                                                        <form:input type="text" class="is-invalid form-control"
-                                                            path="address" />
-                                                        <form:errors path="address" cssClass="invalid-feedback" />
+                                                            class="form-control ${not empty errorPhone ? 'is-invalid' : ''}" />
+                                                        ${errorPhone}
                                                     </div>
 
+
                                                     <div class="mb-3 col-12 col-md-6">
+                                                        <c:set var="errorFullName">
+                                                            <form:errors path="fullName" class="invalid-feedback" />
+                                                        </c:set>
+                                                        <label class="form-label">Full name:</label>
+                                                        <form:input path="fullName" type="text"
+                                                            class="form-control ${not empty errorFullName ? 'is-invalid' : ''}" />
+                                                        ${errorFullName}
+                                                    </div>
+
+
+                                                    <div class="mb-3 col-12 col-md-6">
+                                                        <c:set var="errorPassword">
+                                                            <form:errors path="password" class="invalid-feedback" />
+                                                        </c:set>
+                                                        <label class="form-label">Address:</label>
+                                                        <form:input type="text"
+                                                            class="form-control ${not empty errorPassword ? 'is-invalid' : ''}"
+                                                            path="address" />
+                                                        ${errorPassword}
+                                                    </div>
+
+
+                                                    <div class="mb-3 col-12 col-md-6">
+
                                                         <label class="form-label">Role:</label>
                                                         <form:select class="form-select"
                                                             aria-label="Default select example" path="roles.name">
@@ -97,6 +116,8 @@
                                                             <form:option value="USER">USER</form:option>
                                                         </form:select>
                                                     </div>
+
+
                                                     <div class="mb-3 col-12 col-md-6">
                                                         <label for="avatarFile" class="form-label">Avatar:</label>
                                                         <input class="form-control" type="file" id="avatarFile"

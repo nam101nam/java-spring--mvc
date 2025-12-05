@@ -6,6 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "products")
@@ -13,11 +16,21 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @NotNull
+    @Size(min = 2, message = "Name phải có tối thiểu 2 ký tự")
     private String name;
+    @NotNull
+    @Min(value = 2, message = "Price phải có tối thiểu 2 ký tự")
     private long price;
     private String image;
+    @NotNull
+    @Size(min = 2, message = "Detail description phải có tối thiểu 2 ký tự")
     private String detailDesc;
+    @NotNull
+    @Size(min = 2, message = "Short description phải có tối thiểu 2 ký tự")
     private String shortlDesc;
+    @NotNull
+    @Min(value = 2, message = "Quantity phải có tối thiểu 2 ký tự")
     private int quantity;
     private int sold;
     private String factory;

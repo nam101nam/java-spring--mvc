@@ -47,9 +47,9 @@
                                                     <c:forEach var="product" items="${products}">
                                                         <tr>
                                                             <td>${product.id}</td>
-                                                            <td>${product.email}</td>
-                                                            <td>${product.fullName}</td>
-                                                            <td>${product.roles.name}</td>
+                                                            <td>${product.name}</td>
+                                                            <td>${product.price}</td>
+                                                            <td>${product.factory}</td>
                                                             <td>
                                                                 <a href="/admin/user/${user.id}"
                                                                     class="btn btn-success">View</a>

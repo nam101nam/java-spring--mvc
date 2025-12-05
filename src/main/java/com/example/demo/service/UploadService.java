@@ -19,7 +19,7 @@ public class UploadService {
         this.servletContext = servletContext;
     }
 
-    public String handleUploadFile(@RequestParam("hoidanitFile") MultipartFile file, String targetPath) {
+    public String handleUploadFile(MultipartFile file, String targetPath) {
         if (file.isEmpty()) {
             return "";
         }
