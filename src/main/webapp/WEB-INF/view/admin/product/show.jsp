@@ -28,7 +28,42 @@
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Products</li>
                                 </ol>
-                                <div>Table products</div>
+                                <div class="d-flex justify-content-between">
+                                    <h2>Table products</h2>
+                                    <a href="/admin/product/create" class="btn btn-primary">Create new product</a>
+                                </div>
+                                <div>
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">ID</th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col">Price</th>
+                                                        <th scope="col">Factory</th>
+                                                        <th scope="col">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <c:forEach var="product" items="${products}">
+                                                        <tr>
+                                                            <td>${product.id}</td>
+                                                            <td>${product.email}</td>
+                                                            <td>${product.fullName}</td>
+                                                            <td>${product.roles.name}</td>
+                                                            <td>
+                                                                <a href="/admin/user/${user.id}"
+                                                                    class="btn btn-success">View</a>
+                                                                <a href="/admin/user/update/${user.id}"
+                                                                    class="btn btn-warning">Update</a>
+                                                                <a href="/admin/user/delete/${user.id}"
+                                                                    class="btn btn-danger">Delete</a>
+                                                            </td>
+
+                                                        </tr>
+                                                    </c:forEach>
+                                                </tbody>
+                                            </table>
+                                        </div>
                             </div>
                         </main>
                         <jsp:include page="../layout/footer.jsp" />
