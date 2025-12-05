@@ -23,46 +23,33 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
-                                <h1 class="mt-4">Manage products</h1>
+                                <h1 class="mt-4">Manage product</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Products</li>
+                                    <li class="breadcrumb-item active"><a href="/admin/product">Product</a></li>
+                                    <li class="breadcrumb-item active">View detail</li>
                                 </ol>
-                                <div class="d-flex justify-content-between">
-                                    <h2>Table products</h2>
-                                    <a href="/admin/product/create" class="btn btn-primary">Create new product</a>
-                                </div>
                                 <div>
-                                    <table class="table table-hover">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">ID</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Price</th>
-                                                <th scope="col">Factory</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="product" items="${products}">
-                                                <tr>
-                                                    <td>${product.id}</td>
-                                                    <td>${product.name}</td>
-                                                    <td>${product.price}</td>
-                                                    <td>${product.factory}</td>
-                                                    <td>
-                                                        <a href="/admin/product/${product.id}"
-                                                            class="btn btn-success">View</a>
-                                                        <a href="/admin/product/update/${product.id}"
-                                                            class="btn btn-warning">Update</a>
-                                                        <a href="/admin/product/delete/${product.id}"
-                                                            class="btn btn-danger">Delete</a>
-                                                    </td>
+                                    <div>
+                                        <div class="col-12 mx-auto">
+                                            <div class="card" style="width: 60%;">
+                                                <div class="card-header">
+                                                    Thông tin chi tiết product với ID=${id}
+                                                </div>
+                                                <div><img src="/images/products/${product.image}" alt="${product.image}"
+                                                        style="max-width: 100%; height: auto;" /></div>
+                                                <ul class="list-group list-group-flush">
 
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
+                                                    <li class="list-group-item">Id: ${product.id}</li>
+                                                    <li class="list-group-item">Name: ${product.name}</li>
+                                                    <li class="list-group-item">Price: ${product.price}</li>
+
+                                                </ul>
+                                                <div><a href="/admin/product" class="btn btn-success">Back</a></div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </main>
